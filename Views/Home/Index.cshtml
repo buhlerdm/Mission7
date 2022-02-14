@@ -1,0 +1,62 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Index";
+}
+@model BooksViewModel
+<div class="bg-dark py-5">
+    <div class="container px-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 col-xxl-6">
+                <div class="text-center my-5">
+                    <h1 class="fw-bolder text-white">Book Report Project</h1>
+                    <p class="lead fw-normal text-muted mb-4">Made by Mitch Buhler IS 413 Section 2</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<section class="py-5 bg-light">
+    <div class="container px-5 my-5">
+        <div class="container">
+            <div class="row">
+                @foreach (Book b in Model.Books)
+                {
+
+
+
+                    <div class="col-6">
+                        <h3 class="text-center">@b.Title</h3>
+                        <ul class="list-group list-group-flush text-center">
+                            <li class="list-group-item">Author: @b.Author</li>
+                            <li class="list-group-item">Publisher: @b.Publisher</li>
+                            <li class="list-group-item">Isbn: @b.Isbn</li>
+                            <li class="list-group-item">Classification: @b.Classification</li>
+                            <li class="list-group-item">PageCount: @b.PageCount</li>
+                            <li class="list-group-item">Price: $@b.Price</li>
+                        </ul>
+                        <br />
+                    </div>
+
+
+                }
+            </div>
+        </div>
+    </div>
+        @*<nav aria-label="Page navigation example">
+            <div class="pagination justify-content-center">
+                <div class="page-item" page-model="@Model.PageInfo" page-action="Index"></div>
+
+            </div>
+        </nav>*@
+    <div class="container">
+        <div class="row">
+            <div page-model="@Model.PageInfo" page-action="Index" page-classes-enabled="true"
+                 page-class="btn " page-class-normal="btn-outline-dark"
+                 page-class-selected="btn-primary" class="btn-group pull-right m-1">
+            </div>
+        </div>
+    </div>
+</section>
+
